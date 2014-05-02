@@ -1,0 +1,5 @@
+app_category:
+    resource: "@AppCategoryBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
