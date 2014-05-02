@@ -1,3 +1,8 @@
+aapp_admin_category:
+    resource: "@AppAdminCategoryBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app_category:
     resource: "@AppCategoryBundle/Controller/"
     type:     annotation

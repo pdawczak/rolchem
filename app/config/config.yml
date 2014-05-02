@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: braincrafted.yml }
 
 framework:
     #esi:             ~
@@ -33,7 +34,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ AppAppBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
