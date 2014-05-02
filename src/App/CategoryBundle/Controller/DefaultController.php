@@ -8,5 +8,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
-
+    /**
+     * @Route("/c", name="app_category_index")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        return array();
+    }
 }
