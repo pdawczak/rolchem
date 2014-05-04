@@ -15,3 +15,5 @@ web/fonts/
 !web/images/categories/.gitkeep
 /web/images/products/*
 !web/images/products/.gitkeep
+/web/media/cache/*
+!web/media/cache/.gitkeep
