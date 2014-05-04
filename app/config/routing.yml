@@ -1,3 +1,13 @@
+app_admin_product:
+    resource: "@AppAdminProductBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app_product:
+    resource: "@AppProductBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app_app:
     resource: "@AppAppBundle/Controller/"
     type:     annotation

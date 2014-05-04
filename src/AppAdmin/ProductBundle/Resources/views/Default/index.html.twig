@@ -1,0 +1,25 @@
+{% extends 'AppAppBundle::admin_layout.html.twig' %}
+
+{% block body %}
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Akcja</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>
+                        <a href="{{ path('admin_product_edit', { productId: product.id }) }}">Edytuj</a>
+                        <a href="{{ path('admin_product_delete', { productId: product.id }) }}" class="remove-link">Usuń</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_product_new') }}" class="btn btn-primary">{{ icon('plus') }} Nowy produkt</a>
+{% endblock body %}

@@ -18,6 +18,9 @@
             <li class="first {% if active == 'categories' %}active{% endif %}">
                 <a href="{{ path('admin_category_index') }}">{{ icon('asterisk') }} Kategorie</a>
             </li>
+            <li class="first {% if active == 'products' %}active{% endif %}">
+                <a href="{{ path('admin_product_index') }}">{{ icon('th') }} Produkty</a>
+            </li>
         </ul>
 
         <div class="collapse navbar-collapse navbar-right">

@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new AppAdmin\CategoryBundle\AppAdminCategoryBundle(),
             new App\AppBundle\AppAppBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new App\ProductBundle\AppProductBundle(),
+            new AppAdmin\ProductBundle\AppAdminProductBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
