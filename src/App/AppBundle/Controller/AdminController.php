@@ -10,6 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminController extends Controller
 {
     /**
+     * @Route("/admin", name="admin_index")
+     */
+    public function indexAction()
+    {
+        return $this->redirect($this->generateUrl('admin_dashboard'));
+    }
+
+    /**
      * @Route("/admin/dashboard", name="admin_dashboard")
      * @Template()
      */

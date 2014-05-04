@@ -1,5 +1,25 @@
 {% extends 'AppAppBundle::admin_layout.html.twig' %}
 
 {% block body %}
-    Admin for Categories
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Akcja</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>
+                        <a href="{{ path('admin_category_edit', { categoryId: category.id }) }}">Edytuj</a>
+                        <a href="{{ path('admin_category_delete', { categoryId: category.id }) }}" class="remove-link">Usuń</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_category_new') }}" class="btn btn-primary">{{ icon('plus') }} Nowa Kategoria</a>
 {% endblock body %}

@@ -1,0 +1,9 @@
+{% extends 'AppAppBundle::admin_layout.html.twig' %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>Dodawanie nowej kategorii</h1>
+    </div>
+
+    {% include 'AppAdminCategoryBundle:Default:_form.html.twig' with { form: form } %}
+{% endblock body %}

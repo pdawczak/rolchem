@@ -35,7 +35,7 @@
     <div class="container" id="main-container-admin">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                {#{% include 'EBVAppBundle::_flashes.html.twig' with { 'close': true } %}#}
+                {% include 'AppAppBundle::_flashes.html.twig' with { 'close': true } %}
 
                 {% block body %}
                 {% endblock body %}
