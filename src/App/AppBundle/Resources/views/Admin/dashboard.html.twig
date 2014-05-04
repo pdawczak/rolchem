@@ -1,5 +1,30 @@
 {% extends 'AppAppBundle::admin_layout.html.twig' %}
 
 {% block body %}
-    ADMIN
+    <div class="page-header">
+        <h1>Admin</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="list-group">
+                <a href="{{ path('admin_category_index') }}" class="list-group-item">
+                    <span class="badge">{{ categoriesCount }}</span>
+                    <h4 class="list-group-item-heading">
+                        {{ icon('asterisk') }}
+                        Kategorie
+                    </h4>
+                    <p class="list-group-item-text">Zarządzaj kategoriami.</p>
+                </a>
+                <a href="{{ path('admin_product_index') }}" class="list-group-item">
+                    <span class="badge">{{ productsCount }}</span>
+                    <h4 class="list-group-item-heading">
+                        {{ icon('th') }}
+                        Produkty
+                    </h4>
+                    <p class="list-group-item-text">Zarządzaj produktami.</p>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock body %}

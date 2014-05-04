@@ -23,7 +23,10 @@ class AdminController extends Controller
      */
     public function dashboardAction()
     {
-        return array();
+        return array(
+            'categoriesCount' => $this->getCategoryRepository()->getCount(),
+            'productsCount'   => $this->getProductRepository()->getCount(),
+        );
     }
 
     /**
@@ -47,5 +50,21 @@ class AdminController extends Controller
         return array(
             'active'  => $active,
         );
+    }
+
+    /**
+     * @return \App\ProductBundle\Repository\ProductRepository
+     */
+    protected function getProductRepository()
+    {
+        return $this->getDoctrine()->getRepository('AppProductBundle:Product');
+    }
+
+    /**
+     * @return \App\CategoryBundle\Repository\CategoryRepository
+     */
+    protected function getCategoryRepository()
+    {
+        return $this->getDoctrine()->getRepository('AppCategoryBundle:Category');
     }
 }
