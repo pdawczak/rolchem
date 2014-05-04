@@ -6,7 +6,22 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-10">
-                <img class="thumbnail col-lg-12" src="{{ vich_uploader_asset(form.vars.value, 'image') }}" />
+                Szczegóły produktu
+                <img class="thumbnail" src="{{ vich_uploader_asset(form.vars.value, 'image') | imagine_filter('product_details') }}" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                Lista produktów
+                <img class="thumbnail" src="{{ vich_uploader_asset(form.vars.value, 'image') | imagine_filter('product_listing') }}" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                Koszyk
+                <img class="thumbnail" src="{{ vich_uploader_asset(form.vars.value, 'image') | imagine_filter('product_cart') }}" />
             </div>
         </div>
     {% endif %}

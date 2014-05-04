@@ -23,3 +23,6 @@ app_category:
     type:     annotation
     prefix:   /
 
+_imagine:
+    resource: .
+    type:     imagine

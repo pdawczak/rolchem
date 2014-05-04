@@ -4,6 +4,7 @@ imports:
     - { resource: braincrafted.yml }
     - { resource: gaufrette.yml }
     - { resource: vich_uploader.yml }
+    - { resource: liip_imagine.yml }
 
 framework:
     #esi:             ~

@@ -1,0 +1,21 @@
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+
+        category_header:
+            filters:
+                thumbnail: { size: [800, 300], mode: outbound }
+
+        product_listing:
+            filters:
+                thumbnail: { size: [320, 150], mode: outbound }
+        product_details:
+            filters:
+                thumbnail: { size: [370, 300], mode: outbound }
+        product_cart:
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound }

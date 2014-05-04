@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-10">
-                <img class="thumbnail col-lg-12" src="{{ vich_uploader_asset(form.vars.value, 'image') }}" />
+                <img class="thumbnail col-lg-12" src="{{ vich_uploader_asset(form.vars.value, 'image') | imagine_filter('category_header') }}" />
             </div>
         </div>
     {% endif %}
