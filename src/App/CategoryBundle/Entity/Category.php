@@ -2,6 +2,8 @@
 
 namespace App\CategoryBundle\Entity;
 
+use App\ProductBundle\Entity\Product;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\HttpFoundation\File\File;
@@ -58,6 +60,21 @@ class Category
      * @ORM\Column(name="timestamp", type="integer", nullable=true)
      */
     protected $timestamp;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="App\ProductBundle\Entity\Product", mappedBy="category")
+     */
+    private $products;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -142,10 +159,12 @@ class Category
      * @param \Symfony\Component\HttpFoundation\File\File $image
      * @return Category
      */
-    public function setImage(File $image)
+    public function setImage(File $image = null)
     {
         $this->image = $image;
-        $this->setTimestamp(time());
+        if ($image) {
+            $this->setTimestamp(time());
+        }
         return $this;
     }
 
@@ -155,5 +174,46 @@ class Category
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Add product
+     *
+     * @param \App\ProductBundle\Entity\Product $product
+     * @return Category
+     */
+    public function addProduct(Product $product)
+    {
+        $this->products[] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Remove product
+     *
+     * @param \App\ProductBundle\Entity\Product $product
+     */
+    public function removeProduct(Product $product)
+    {
+        $this->products->removeElement($product);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

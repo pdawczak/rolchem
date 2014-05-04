@@ -18,11 +18,15 @@ class ProductType extends AbstractType
             ->add('name', null, array(
                 'label' => 'Nazwa'
             ))
+            ->add('category', null, array(
+                'label' => 'Kategoria'
+            ))
             ->add('description', null, array(
                 'label' => 'Opis'
             ))
             ->add('image', 'file', array(
-                'label' => 'Obrazek'
+                'label'    => 'Obrazek',
+                'required' => false
             ))
         ;
     }

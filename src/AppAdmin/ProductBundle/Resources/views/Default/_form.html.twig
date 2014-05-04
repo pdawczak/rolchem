@@ -1,8 +1,9 @@
 {{ form_start(form, { style: 'horizontal', action: action, method: 'post' }) }}
     {{ form_row(form.name) }}
+    {{ form_row(form.category) }}
     {{ form_row(form.image) }}
 
-    {% if form.vars.value.imageName %}
+    {% if form.vars.value.imageName is defined and form.vars.value.imageName != '' %}
         <div class="row">
             <div class="col-lg-2"></div>
             <div class="col-lg-10">

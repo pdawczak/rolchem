@@ -14,6 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="categories")
  * @ORM\Entity(repositoryClass="App\CategoryBundle\Repository\CategoryRepository")
+ * @Vich\Uploadable
  */
 class Category
 {
@@ -40,7 +41,7 @@ class Category
      *     maxSize="1M",
      *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
      * )
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="category_image", fileNameProperty="imageName")
      */
     protected $image;
 
@@ -59,6 +60,13 @@ class Category
     protected $timestamp;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="App\ProductBundle\Entity\Product", mappedBy="category")
+     */
+    private $products;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -66,5 +74,93 @@ class Category
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Category
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set imageName
+     *
+     * @param string $imageName
+     * @return Category
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * Get imageName
+     *
+     * @return string 
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param integer $timestamp
+     * @return Category
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return integer 
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @param \Symfony\Component\HttpFoundation\File\File $image
+     * @return Category
+     */
+    public function setImage(File $image)
+    {
+        $this->image = $image;
+        $this->setTimestamp(time());
+        return $this;
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\File\File
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
