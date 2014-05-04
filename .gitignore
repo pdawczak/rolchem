@@ -11,3 +11,7 @@
 /composer.phar
 .idea/*
 web/fonts/
+/web/images/categories/*
+!web/images/categories/.gitkeep
+/web/images/products/*
+!web/images/products/.gitkeep

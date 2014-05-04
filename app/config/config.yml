@@ -2,6 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: braincrafted.yml }
+    - { resource: gaufrette.yml }
+    - { resource: vich_uploader.yml }
 
 framework:
     #esi:             ~

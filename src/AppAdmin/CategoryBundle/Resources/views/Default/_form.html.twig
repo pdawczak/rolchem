@@ -2,6 +2,15 @@
     {{ form_row(form.name) }}
     {{ form_row(form.image) }}
 
+    {% if form.vars.value.imageName %}
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                <img class="thumbnail col-lg-12" src="{{ vich_uploader_asset(form.vars.value, 'image') }}" />
+            </div>
+        </div>
+    {% endif %}
+
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">
             <button class="btn btn-success">{{ icon('ok') }} Zapisz</button>

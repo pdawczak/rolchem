@@ -1,11 +1,22 @@
 {{ form_start(form, { style: 'horizontal', action: action, method: 'post' }) }}
     {{ form_row(form.name) }}
+    {{ form_row(form.image) }}
+
+    {% if form.vars.value.imageName %}
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10">
+                <img class="thumbnail col-lg-12" src="{{ vich_uploader_asset(form.vars.value, 'image') }}" />
+            </div>
+        </div>
+    {% endif %}
+
     {{ form_row(form.description) }}
 
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">
             <button class="btn btn-success">{{ icon('ok') }} Zapisz</button>
-            <a href="{{ path('admin_category_index') }}" class="btn btn-default">{{ icon('chevron-left') }} Anuluj</a>
+            <a href="{{ path('admin_product_index') }}" class="btn btn-default">{{ icon('chevron-left') }} Anuluj</a>
         </div>
     </div>
 {{ form_end(form) }}

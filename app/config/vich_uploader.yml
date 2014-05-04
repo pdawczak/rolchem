@@ -1,0 +1,13 @@
+vich_uploader:
+    db_driver: orm
+    gaufrette: true
+    storage:   vich_uploader.storage.gaufrette
+    mappings:
+        category_image:
+            uri_prefix:         /images/categories
+            upload_destination: category_image_fs
+            namer:              vich_uploader.namer_uniqid
+        product_image:
+            uri_prefix:         /images/products
+            upload_destination: product_image_fs
+            namer:              vich_uploader.namer_uniqid

@@ -14,6 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="categories")
  * @ORM\Entity(repositoryClass="App\CategoryBundle\Repository\CategoryRepository")
+ * @Vich\Uploadable
  */
 class Category
 {
@@ -40,7 +41,7 @@ class Category
      *     maxSize="1M",
      *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
      * )
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="category_image", fileNameProperty="imageName")
      */
     protected $image;
 
@@ -141,7 +142,7 @@ class Category
      * @param \Symfony\Component\HttpFoundation\File\File $image
      * @return Category
      */
-    public function setImage($image)
+    public function setImage(File $image)
     {
         $this->image = $image;
         $this->setTimestamp(time());

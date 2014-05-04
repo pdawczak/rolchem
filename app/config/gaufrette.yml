@@ -1,0 +1,16 @@
+knp_gaufrette:
+    stream_wrapper: ~
+
+    adapters:
+        category_adapter:
+            local:
+                directory: %kernel.root_dir%/../web/images/categories
+        product_adapter:
+            local:
+                directory: %kernel.root_dir%/../web/images/products
+
+    filesystems:
+        category_image_fs:
+            adapter:    category_adapter
+        product_image_fs:
+            adapter:    product_adapter

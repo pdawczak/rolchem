@@ -21,6 +21,9 @@ class ProductType extends AbstractType
             ->add('description', null, array(
                 'label' => 'Opis'
             ))
+            ->add('image', 'file', array(
+                'label' => 'Obrazek'
+            ))
         ;
     }
     
