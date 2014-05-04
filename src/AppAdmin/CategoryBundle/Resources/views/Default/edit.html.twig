@@ -5,5 +5,5 @@
         <h1>Edycja kategorii <small>{{ category.name }}</small></h1>
     </div>
 
-    {% include 'AppAdminCategoryBundle:Default:_form.html.twig' with { form: form } %}
+    {% include 'AppAdminCategoryBundle:Default:_form.html.twig' with { form: form, action: path('admin_category_edit', { categoryId: category.id }) } %}
 {% endblock body %}

@@ -5,5 +5,5 @@
         <h1>Dodawanie nowej kategorii</h1>
     </div>
 
-    {% include 'AppAdminCategoryBundle:Default:_form.html.twig' with { form: form } %}
+    {% include 'AppAdminCategoryBundle:Default:_form.html.twig' with { form: form, action: path('admin_category_new') } %}
 {% endblock body %}
