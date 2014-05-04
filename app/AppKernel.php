@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

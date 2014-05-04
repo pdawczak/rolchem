@@ -26,7 +26,12 @@
         </div>
     {% endif %}
 
-    {{ form_row(form.description) }}
+    <div class="form-group row {% if form_errors(form.description) %}has-error{% endif %}">
+        {{ form_errors(form.description) }}
+        {{ form_widget(form.description, { attr: { rows: 25, class: 'rich-editor' } }) }}
+    </div>
+
+    {#{{ form_row(form.description) }}#}
 
     <div class="form-group">
         <div class="col-lg-offset-2 col-lg-10">
