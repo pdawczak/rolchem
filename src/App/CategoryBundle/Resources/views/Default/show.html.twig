@@ -1,0 +1,39 @@
+{% extends 'AppAppBundle::app_layout.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-3">
+            {{ render(controller('AppCategoryBundle:Default:categoriesList', { request: app.request, category: category })) }}
+        </div>
+        <div class="col-md-9">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-md-12">
+                    <a href="{{ path('app_category_show', { categoryId: category.id }) }}">
+                        <img class="slide-image" src="{{ vich_uploader_asset(category, 'image') | imagine_filter('category_header') }}" alt="">
+                        <div class="carousel-caption">
+                            <h3>{{ category.name }}</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <div class="thumbnail product">
+                            <a href="{{ path('app_product_show', { categoryId: category.id, productId: product.id }) }}">
+                                <img src="{{ vich_uploader_asset(product, 'image') | imagine_filter('product_listing') }}" alt="{{ product.name }}">
+                            </a>
+                            <div class="caption">
+                                <h4><a href="{{ path('app_product_show', { categoryId: category.id, productId: product.id }) }}">{{ product.name }}</a></h4>
+                                <a href="#">
+                                    {{ icon('plus') }} Dodaj do zamówienia
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}

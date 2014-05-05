@@ -1,5 +1,23 @@
-{% extends "::base.html.twig" %}
+{% extends 'AppAppBundle::app_layout.html.twig' %}
 
 {% block body %}
-    THIS IS IT!
+    <div class="row">
+        <div class="col-md-3">
+            {{ render(controller('AppCategoryBundle:Default:categoriesList', { request: app.request })) }}
+        </div>
+        <div class="col-md-9">
+            {% for category in categories %}
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-md-12">
+                        <a href="{{ path('app_category_show', { categoryId: category.id }) }}" class="item {% if loop.index0 == 0 %}active{% endif %}">
+                            <img class="slide-image" src="{{ vich_uploader_asset(category, 'image') | imagine_filter('category_header') }}" alt="">
+                            <div class="carousel-caption">
+                                <h3>{{ category.name }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock body %}

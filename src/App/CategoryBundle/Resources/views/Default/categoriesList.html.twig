@@ -1,0 +1,8 @@
+<div class="list-group">
+    {% for category in categories %}
+        <a href="{{ path('app_category_show', { categoryId: category.id }) }}"
+           class="list-group-item {% if selectedCategory is defined and category == selectedCategory %}active{% endif %}">
+            {{ category.name }}
+        </a>
+    {% endfor %}
+</div>

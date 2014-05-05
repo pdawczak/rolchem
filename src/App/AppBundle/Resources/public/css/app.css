@@ -1,0 +1,72 @@
+body {
+    padding-top: 125px; /* adjust this if the height of the menu bar changes */
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+footer {
+    padding: 30px 0;
+}
+
+
+/**** ****/
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,.item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 80px;
+    overflow: hidden;
+}
+
+.caption h4 {
+    white-space: nowrap;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    color: #d17581;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.product.thumbnail {
+    width: 100%;
+    padding: 0;
+}
+
+.product.thumbnail .caption a,
+.product.thumbnail .caption a:hover {
+    text-decoration: none;
+    text-align: center;
+}
+
+.product.thumbnail .caption h4 {
+    text-align: center;
+}
