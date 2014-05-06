@@ -2,11 +2,11 @@ app.directive('growl', function () {
     return {
         restrict: 'C',
         link: function (scope, element, attrs) {
-            scope.$on("UPDATE_ORDER_ITEM_COUNT", function (event) {
+            scope.$on("UPDATE_ORDER_ITEM_COUNT", function (event, message) {
                 $.gritter.add({
-                    title: 'Super znicz',
-                    text: 'Produkt został dodany do zamówienia.',
-                    image: 'http://localhost:8000/media/cache/product_cart/images/products/536688cff0cfa.jpg'
+                    title: message.title,
+                    text: message.message,
+                    image: message.image
                 });
             });
         }

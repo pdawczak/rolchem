@@ -3,6 +3,7 @@
 namespace App\CategoryBundle\Controller;
 
 use App\CategoryBundle\Entity\Category;
+use App\OrderBundle\Service\Order;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -30,8 +31,9 @@ class DefaultController extends Controller
     public function showAction(Category $category)
     {
         return array(
-            'category' => $category,
-            'products' => $category->getProducts(),
+            'category'     => $category,
+            'products'     => $category->getProducts(),
+            'orderService' => $this->getOrderService()
         );
     }
 
@@ -44,6 +46,15 @@ class DefaultController extends Controller
             'categories'       => $this->getRepository()->findBy(array(), array('name' => 'ASC')),
             'selectedCategory' => $category
         );
+    }
+
+
+    /**
+     * @return Order
+     */
+    protected function getOrderService()
+    {
+        return $this->get('order_service');
     }
 
     /**

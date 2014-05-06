@@ -30,7 +30,8 @@ class DefaultController extends Controller
         }
 
         return array(
-            'active' => $active
+            'active'          => $active,
+            'orderItemsCount' => $this->get('order_service')->count(),
         );
     }
 }

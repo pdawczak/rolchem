@@ -4,17 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="app_order.example.class">App\OrderBundle\Example</parameter>
+        <parameter key="app_order.order_service.class">App\OrderBundle\Service\Order</parameter>
     </parameters>
 
     <services>
-        <service id="app_order.example" class="%app_order.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="order_service" class="%app_order.order_service.class%">
+            <argument type="service" id="session" />
         </service>
     </services>
-    -->
 </container>

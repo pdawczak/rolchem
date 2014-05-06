@@ -23,7 +23,7 @@
                     <a href="{{ path('app_category_index') }}">Oferta</a>
                 </li>
                 <li {% if active == 'order' %}class="active"{% endif %}>
-                    <a href="#">Zamówienie <span class="order-nav-indicator"></span></a>
+                    <a href="#">Zamówienie <span class="order-nav-indicator" data-count="{{ orderItemsCount }}"></span></a>
                 </li>
                 <li {% if active == 'contact' %}class="active"{% endif %}>
                     <a href="#">Kontakt</a>

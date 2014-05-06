@@ -26,7 +26,7 @@
                             </a>
                             <div class="caption">
                                 <h4><a href="{{ path('app_product_show', { categoryId: category.id, productId: product.id }) }}">{{ product.name }}</a></h4>
-                                <a href="#">
+                                <a href="{{ path('app_order_addItem', { productId: product.id }) }}" class="add-item">
                                     {{ icon('plus') }} Dodaj do zamówienia
                                 </a>
                             </div>

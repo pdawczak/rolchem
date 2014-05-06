@@ -1,11 +1,15 @@
-app.directive('addItem', function () {
+app.directive('addItem', ['$http', function ($http) {
     return {
         restrict: 'C',
-        controller: ['$scope', function ($scope) {
-            $scope.addItem = function () {
-                this.$emit("ORDER_ITEM_ADDED");
-            };
-        }],
-        template: '<button data-ng-click="addItem()">ADD AN ITEM</button>'
+        link: function (scope, element, attrs) {
+            element.on('click', function (e) {
+                e.preventDefault();
+                $http.post(attrs.href, {}).then(function (response) {
+                    var message = response.data;
+                    message.title = message.name;
+                    scope.$emit("ORDER_ITEM_ADDED", message);
+                });
+            });
+        }
     };
-});
+}]);
