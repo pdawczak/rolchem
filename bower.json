@@ -1,0 +1,23 @@
+{
+  "name": "rolchem",
+  "version": "0.0.0",
+  "authors": [
+    "Paweł Dawczak <pawel.dawczak@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "jquery": "~1.9.x",
+    "requirejs": "~2.1.11",
+    "bootstrap": "~3.1.1",
+    "jquery.gritter": "*"
+  }
+}

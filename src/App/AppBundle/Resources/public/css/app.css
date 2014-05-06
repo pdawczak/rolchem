@@ -70,3 +70,7 @@ footer {
 .product.thumbnail .caption h4 {
     text-align: center;
 }
+
+#gritter-notice-wrapper {
+    top: 90px !important;
+}
