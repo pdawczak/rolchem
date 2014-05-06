@@ -1,3 +1,8 @@
+app_order:
+    resource: "@AppOrderBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app_admin_product:
     resource: "@AppAdminProductBundle/Controller/"
     type:     annotation
