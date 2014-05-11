@@ -25,10 +25,10 @@ class PurchaseItem
     /**
      * @var Purchase
      *
-     * @ORM\ManyToOne(targetEntity="Purchase", inversedBy="purchases")
+     * @ORM\ManyToOne(targetEntity="Purchase", inversedBy="purchaseItems")
      * @ORM\JoinColumn(name="purchase_id", referencedColumnName="id")
      */
-    protected $purchases;
+    protected $purchase;
 
     /**
      * @var \App\ProductBundle\Entity\Product

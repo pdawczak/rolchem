@@ -183,4 +183,12 @@ class Purchase
     {
         return $this->finished;
     }
+
+    /**
+     * @return string
+     */
+    public function getOrderer()
+    {
+        return $this->getPurchaseDetails()->getFullName();
+    }
 }

@@ -47,6 +47,10 @@ class AdminController extends Controller
             $active = 'products';
         }
 
+        if (strpos($request->getPathInfo(), '/admin/orders') !== false) {
+            $active = 'orders';
+        }
+
         return array(
             'active'  => $active,
         );

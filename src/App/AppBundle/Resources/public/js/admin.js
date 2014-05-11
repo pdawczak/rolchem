@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('.remove-link').on('click', function (e) {
-        if (! confirm("Czy na pewno usunąć?")) {
+        if (! confirm("Czy jesteś pewien?")) {
             e.preventDefault();
         }
     });
