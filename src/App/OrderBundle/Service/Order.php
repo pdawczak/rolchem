@@ -38,7 +38,7 @@ class Order
         }
 
         $items = $this->getItems();
-        $items[$id] = 0;
+        $items[$id] = 1;
         $this->setItems($items);
         return true;
     }
@@ -79,5 +79,22 @@ class Order
     public function getItems()
     {
         return $this->session->get('order_items', array());
+    }
+
+    /**
+     * @param $id
+     */
+    public function remove($id)
+    {
+        $items = $this->getItems();
+        if (isset ($items[$id])) {
+            unset ($items[$id]);
+        }
+        $this->setItems($items);
+    }
+
+    public function clear()
+    {
+        $this->setItems(array());
     }
 } 

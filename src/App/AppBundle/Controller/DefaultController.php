@@ -29,6 +29,10 @@ class DefaultController extends Controller
             $active = 'offer';
         }
 
+        if (strpos($request->getPathInfo(), '/zamowienie') !== false) {
+            $active = 'order';
+        }
+
         return array(
             'active'          => $active,
             'orderItemsCount' => $this->get('order_service')->count(),

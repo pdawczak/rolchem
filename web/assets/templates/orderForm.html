@@ -1,0 +1,148 @@
+<div data-ng-if="loading">Proszę czekać...</div>
+
+<div data-ng-if="! loading">
+    <div data-ng-if="orderPlaced">
+        Dziękujemy za złożenie zamówienia.
+    </div>
+
+    <div data-ng-if="items.length > 0 && ! orderPlaced">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Produkt</th>
+                    <th class="col-lg-2">Ilość</th>
+                    <th class="col-lg-1">Usuń</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="item in items">
+                    <td>
+                        <img data-ng-src="{{item.image}}">
+                        <span>{{item.name}}</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" style="text-align: right" data-ng-model="item.quantity">
+                    </td>
+                    <td>
+                        <a href="#" data-ng-click="remove($index)" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form class="form-horizontal" novalidate name="order_form" role="form" data-ng-submit="orderSubmit()">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="form-group row">
+                        <label class="control-label col-lg-2" for="first_name">Dane</label>
+                        <div class="col-lg-5" data-ng-class="{'has-error': (order_form.first_name.$dirty && order_form.first_name.$invalid)}">
+                            <input type="text" id="first_name" name="first_name"
+                                   class="form-control"
+                                   data-ng-model="order.first_name"
+                                   placeholder="Imię" data-ng-minlength=3 required />
+                            <div class="error"
+                                 data-ng-show="order_form.first_name.$dirty && order_form.first_name.$invalid">
+                                <small class="help-block" ng-show="order_form.first_name.$error.required">Proszę wypełnić pole.</small>
+                                <small class="help-block" ng-show="order_form.first_name.$error.minlength">Wartość zbyt krótka.</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-5" data-ng-class="{'has-error': (order_form.last_name.$dirty && order_form.last_name.$invalid)}">
+                            <input type="text" id="last_name" name="last_name"
+                                   class="form-control"
+                                   data-ng-model="order.last_name"
+                                   placeholder="Nazwisko" data-ng-minlength=3 required />
+                            <div class="error"
+                                 data-ng-show="order_form.last_name.$dirty && order_form.last_name.$invalid">
+                                <small class="help-block" ng-show="order_form.last_name.$error.required">Proszę wypełnić pole.</small>
+                                <small class="help-block" ng-show="order_form.last_name.$error.minlength">Wartość zbyt krótka.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-2" for="phone">Dane kontaktowe</label>
+                        <div class="col-lg-3" data-ng-class="{'has-error': (order_form.phone.$dirty && order_form.phone.$invalid)}">
+                            <input type="text" id="phone" name="phone"
+                                   class="form-control"
+                                   data-ng-model="order.phone"
+                                   placeholder="nr. telefonu" data-ng-minlength=3 required />
+                            <div class="error"
+                                 data-ng-show="order_form.phone.$dirty && order_form.phone.$invalid">
+                                <small class="help-block" ng-show="order_form.phone.$error.required">Proszę wypełnić pole.</small>
+                                <small class="help-block" ng-show="order_form.phone.$error.minlength">Wartość zbyt krótka.</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-7" data-ng-class="{'has-error': (order_form.email.$dirty && order_form.email.$invalid)}">
+                            <input type="email" id="email" name="email"
+                                   class="form-control"
+                                   data-ng-model="order.email"
+                                   placeholder="Email" data-ng-minlength=3 required />
+                            <div class="error"
+                                 data-ng-show="order_form.email.$dirty && order_form.email.$invalid">
+                                <small class="help-block" ng-show="order_form.email.$error.required">Proszę wypełnić pole.</small>
+                                <small class="help-block" ng-show="order_form.email.$error.minlength">Wartość zbyt krótka.</small>
+                                <small class="help-block" ng-show="order_form.email.$error.email">Email jest niepoprawny.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-2" for="company_name">Nazwa firmy</label>
+                        <div class="col-lg-10">
+                            <input type="text" id="company_name" name="company_name"
+                                   class="form-control"
+                                   data-ng-model="order.company_name" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-2" for="post_code">Adres</label>
+                        <div class="col-lg-3" data-ng-class="{'has-error': (order_form.post_code.$dirty && order_form.post_code.$invalid)}">
+                            <input type="text" id="post_code" name="post_code"
+                                   class="form-control"
+                                   data-ng-model="order.post_code"
+                                   placeholder="Kod pocztowy" data-ng-minlength=6 data-ng-maxlength=6 required />
+                            <div class="error"
+                                 data-ng-show="order_form.post_code.$dirty && order_form.post_code.$invalid">
+                                <small class="help-block" ng-show="order_form.post_code.$error.required">Proszę wypełnić pole.</small>
+                                <small class="help-block" ng-show="order_form.post_code.$error.minlength">Kod pocztowy za krótki.</small>
+                                <small class="help-block" ng-show="order_form.post_code.$error.maxlength">Kod pocztowy za długi.</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-7" data-ng-class="{'has-error': (order_form.city.$dirty && order_form.city.$invalid)}">
+                            <input type="text" id="city" name="city"
+                                   class="form-control"
+                                   data-ng-model="order.city"
+                                   placeholder="Miasto" data-ng-minlength=3 required />
+                            <div class="error"
+                                 data-ng-show="order_form.city.$dirty && order_form.city.$invalid">
+                                <small class="help-block" ng-show="order_form.city.$error.required">Proszę wypełnić pole.</small>
+                                <small class="help-block" ng-show="order_form.city.$error.minlength">Wartość zbyt krótka.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-2" for="address">&nbsp;</label>
+                        <div class="col-lg-10" data-ng-class="{'has-error': (order_form.address.$dirty && order_form.address.$invalid)}">
+                            <input type="text" id="address" name="address"
+                                   class="form-control"
+                                   data-ng-model="order.address"
+                                   placeholder="Ulica i numer" data-ng-minlength=3 required />
+                            <div class="error"
+                                 data-ng-show="order_form.city.$dirty && order_form.city.$invalid">
+                                <small class="help-block" ng-show="order_form.address.$error.required">Proszę wypełnić pole.</small>
+                                <small class="help-block" ng-show="order_form.address.$error.minlength">Wartość zbyt krótka.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-success" data-ng-disabled="order_form.$invalid">Złóż zamówienie</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div data-ng-if="items.length == 0">
+        W zamówieniu nie ma żadnych produktów. Prosimy o przejżenie oferty.
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{% extends 'AppAppBundle::app_layout.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="order-form"
+                 data-feed="'{{ path('app_oder_items') }}'"
+                 data-remove-url="'{{ path('app_order_removeItem') }}'">
+            </div>
+        </div>
+    </div>
+{% endblock body %}

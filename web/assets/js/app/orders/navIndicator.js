@@ -5,14 +5,16 @@ app.directive('orderNavIndicator', function () {
             count: '='
         },
         controller: ['$scope', function ($scope) {
-            $scope.count = parseInt($scope.count);
+            $scope.renderCount = parseInt($scope.count);
 
             $scope.$on("UPDATE_ORDER_ITEM_COUNT", function (event, message) {
-                if (message.success) {
-                    $scope.count += 1;
-                }
+                $scope.renderCount += message.count;
+            });
+
+            $scope.$on("CLEAN_ORDER_ITEMS", function (event) {
+                $scope.renderCount = 0;
             });
         }],
-        template: '<span data-ng-if="count > 0" class="badge">{{count}}</span>'
+        template: '<span data-ng-if="renderCount > 0" class="badge">{{renderCount}}</span>'
     };
 });

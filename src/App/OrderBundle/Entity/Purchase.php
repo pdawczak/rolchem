@@ -26,14 +26,14 @@ class Purchase
     /**
      * @var PurchaseDetails
      *
-     * @ORM\OneToOne(targetEntity="PurchaseDetails", mappedBy="purchase")
+     * @ORM\OneToOne(targetEntity="PurchaseDetails", mappedBy="purchase", cascade={"persist", "remove"})
      */
     protected $purchaseDetails;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\OneToMany(targetEntity="PurchaseItem", mappedBy="purchase")
+     * @ORM\OneToMany(targetEntity="PurchaseItem", mappedBy="purchase", cascade={"persist", "remove"})
      */
     protected $purchaseItems;
 
@@ -42,7 +42,7 @@ class Purchase
      *
      * @ORM\Column(name="finished", type="boolean")
      */
-    protected $finished;
+    protected $finished = false;
 
     /**
      * @var \DateTime
@@ -79,6 +79,10 @@ class Purchase
     {
         $this->purchaseDetails = $purchaseDetails;
 
+        if (! empty ($purchaseDetails)) {
+            $purchaseDetails->setPurchase($this);
+        }
+
         return $this;
     }
 
@@ -101,6 +105,7 @@ class Purchase
     public function addPurchaseItem(PurchaseItem $purchaseItems)
     {
         $this->purchaseItems[] = $purchaseItems;
+        $purchaseItems->setPurchases($this);
 
         return $this;
     }
