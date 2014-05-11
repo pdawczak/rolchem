@@ -28,6 +28,8 @@ class AppKernel extends Kernel
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new App\OrderBundle\AppOrderBundle(),
             new AppAdmin\PurchaseBundle\AppAdminPurchaseBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new App\UserBundle\AppUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

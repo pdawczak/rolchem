@@ -27,12 +27,12 @@
         </ul>
 
         <div class="collapse navbar-collapse navbar-right">
-            <a href="path('fos_user_security_logout')" class="btn btn-default navbar-btn" style="margin-left: 10px; margin-right: 10px;">{{ icon('off') }}</a>
+            <a href="{{ path('admin_logout') }}" class="btn btn-default navbar-btn" style="margin-left: 10px; margin-right: 10px;">{{ icon('off') }}</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <p class="navbar-text">Zalogowany jako Admin</p>
+                <p class="navbar-text">Zalogowany jako {{ app.user.username }}</p>
             </li>
         </ul>
     </div>

@@ -30,7 +30,9 @@
 </head>
 
 <body class="admin">
-    {{ render(controller('AppAppBundle:Admin:mainMenu', { request: app.request })) }}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ render(controller('AppAppBundle:Admin:mainMenu', { request: app.request })) }}
+    {% endif %}
 
     <div class="container" id="main-container-admin">
         <div class="row">
