@@ -24,8 +24,10 @@ class AdminController extends Controller
     public function dashboardAction()
     {
         return array(
-            'categoriesCount' => $this->getCategoryRepository()->getCount(),
-            'productsCount'   => $this->getProductRepository()->getCount(),
+            'categoriesCount'     => $this->getCategoryRepository()->getCount(),
+            'productsCount'       => $this->getProductRepository()->getCount(),
+            'latestOpenPurchases' => $this->getPurchaseRepository()->getLatestOpenPurchases(),
+            'openPurchasesCount'  => $this->getPurchaseRepository()->getCountOfOpen(),
         );
     }
 
@@ -70,5 +72,13 @@ class AdminController extends Controller
     protected function getCategoryRepository()
     {
         return $this->getDoctrine()->getRepository('AppCategoryBundle:Category');
+    }
+
+    /**
+     * @return \App\OrderBundle\Repository\PurchaseRepository
+     */
+    protected function getPurchaseRepository()
+    {
+        return $this->getDoctrine()->getRepository('AppOrderBundle:Purchase');
     }
 }

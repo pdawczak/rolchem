@@ -24,6 +24,37 @@
                     </h4>
                     <p class="list-group-item-text">Zarządzaj produktami.</p>
                 </a>
+                <a href="{{ path('admin_order_index') }}" class="list-group-item">
+                    <span class="badge">{{ openPurchasesCount }}</span>
+                    <h4 class="list-group-item-heading">
+                        {{ icon('shopping-cart') }}
+                        Zamówienia
+                    </h4>
+                    <p class="list-group-item-text">Przeglądaj zamówienia.</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ icon('time') }} Ostatne otwarte zamówienia</div>
+                    {% if latestOpenPurchases|length %}
+                        <div class="list-group">
+                            {% for purchase in latestOpenPurchases %}
+                                <a href="{{ path('admin_order_show', { purchaseId: purchase.id }) }}"
+                                   class="list-group-item">
+                                    {{ purchase.createdAt|date('d.m.Y') }} -
+                                    {{ purchase.orderer }}
+
+                                    <span class="pull-right">{{ icon('arrow-right') }}</span>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="panel-body">
+                            <p class="text-muted text-center">Nie ma otwartych zamówień.</p>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
