@@ -96,6 +96,29 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $data = $request->request->all();
+
+        // Reference only
+//        $data = array(
+//            'orderDetails' => array(
+//                'first_name' => 'qweqwe',
+//                'last_name' => 'qweqweqwe',
+//                'phone' => 'qweqwe',
+//                'email' => 'qweqwe@asdasd.pl',
+//                'company_name' => 'qweqweqwe',
+//                'city' => 'qweqwe',
+//                'address' => 'qweqwe',
+//                'post_code' => 'qweqwe'
+//            ),
+//            'orderItems' => array(
+//                array(
+//                    'id' => 1,
+//                    'name' => 'Testowy Znicz',
+//                    'quantity' => 1,
+//                    '$$hashKey' => '00A'
+//                )
+//            ),
+//        );
+
         $orderDetails = $data['orderDetails'];
 
         $purchase = new Purchase();

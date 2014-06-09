@@ -55,14 +55,14 @@ class PurchaseItem
     }
 
     /**
-     * Set purchases
+     * Set purchase
      *
-     * @param \App\OrderBundle\Entity\Purchase $purchases
+     * @param \App\OrderBundle\Entity\Purchase $purchase
      * @return PurchaseItem
      */
-    public function setPurchases(Purchase $purchases = null)
+    public function setPurchase(Purchase $purchase = null)
     {
-        $this->purchases = $purchases;
+        $this->purchase = $purchase;
 
         return $this;
     }
@@ -72,9 +72,9 @@ class PurchaseItem
      *
      * @return \App\OrderBundle\Entity\Purchase 
      */
-    public function getPurchases()
+    public function getPurchase()
     {
-        return $this->purchases;
+        return $this->purchase;
     }
 
     /**

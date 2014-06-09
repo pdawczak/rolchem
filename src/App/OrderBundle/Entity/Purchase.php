@@ -105,7 +105,7 @@ class Purchase
     public function addPurchaseItem(PurchaseItem $purchaseItems)
     {
         $this->purchaseItems[] = $purchaseItems;
-        $purchaseItems->setPurchases($this);
+        $purchaseItems->setPurchase($this);
 
         return $this;
     }
