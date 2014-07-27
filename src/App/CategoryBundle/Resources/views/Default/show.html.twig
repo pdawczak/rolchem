@@ -9,7 +9,9 @@
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-md-12">
                     <a href="{{ path('app_category_show', { categoryId: category.id }) }}">
-                        <img class="slide-image" src="{{ vich_uploader_asset(category, 'image') | imagine_filter('category_header') }}" alt="">
+                        {% if category.imageName %}
+                            <img class="slide-image" src="{{ vich_uploader_asset(category, 'image') | imagine_filter('category_header') }}" alt="">
+                        {% endif %}
                         <div class="carousel-caption">
                             <h3>{{ category.name }}</h3>
                         </div>
