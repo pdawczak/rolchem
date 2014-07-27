@@ -1,7 +1,7 @@
 app.directive('orderForm', function () {
     return {
         restrict: 'C',
-        templateUrl: '/assets/templates/orderForm.html',
+        templateUrl: 'assets/templates/orderForm.html',
         scope: {
             feed: '=',
             removeUrl: '='
