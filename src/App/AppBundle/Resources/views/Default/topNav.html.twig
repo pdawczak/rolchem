@@ -26,7 +26,7 @@
                     <a href="{{ path('app_order_new') }}">Zamówienie <span class="order-nav-indicator" data-count="{{ orderItemsCount }}"></span></a>
                 </li>
                 <li {% if active == 'contact' %}class="active"{% endif %}>
-                    <a href="#">Kontakt</a>
+                    <a href="{{ path('app_contact') }}">Kontakt</a>
                 </li>
             </ul>
         </div>

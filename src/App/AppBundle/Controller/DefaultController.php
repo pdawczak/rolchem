@@ -19,6 +19,15 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/kontakt", name="app_contact")
+     * @Template()
+     */
+    public function contactAction()
+    {
+        return array();
+    }
+
+    /**
      * @Template()
      */
     public function topNavAction(Request $request)
@@ -31,6 +40,10 @@ class DefaultController extends Controller
 
         if (strpos($request->getPathInfo(), '/zamowienie') !== false) {
             $active = 'order';
+        }
+
+        if (strpos($request->getPathInfo(), '/kontakt') !== false) {
+            $active = 'contact';
         }
 
         return array(
